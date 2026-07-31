@@ -24,10 +24,39 @@ To Implement ELLIPTIC CURVE CRYPTOGRAPHY(ECC)
 
 ## Program:
 
+~~~
+#include <stdio.h>
+
+int main()
+{
+    int G = 5;
+    int privateKeyA = 6;
+    int privateKeyB = 9;
+    int prime = 17;
+
+    int publicKeyA = (privateKeyA * G) % prime;
+    int publicKeyB = (privateKeyB * G) % prime;
+
+    int sharedKeyA = (privateKeyA * publicKeyB) % prime;
+    int sharedKeyB = (privateKeyB * publicKeyA) % prime;
+
+    printf("Base Point (G): %d\n", G);
+    printf("Prime Number: %d\n", prime);
+    printf("Alice Private Key: %d\n", privateKeyA);
+    printf("Bob Private Key: %d\n", privateKeyB);
+    printf("Alice Public Key: %d\n", publicKeyA);
+    printf("Bob Public Key: %d\n", publicKeyB);
+    printf("Shared Secret Key (Alice): %d\n", sharedKeyA);
+    printf("Shared Secret Key (Bob): %d\n", sharedKeyB);
+
+    return 0;
+}
+~~~
 
 
 ## Output:
 
+![alt text](image.png)
 
 ## Result:
 The program is executed successfully
